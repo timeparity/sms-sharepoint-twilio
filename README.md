@@ -1,6 +1,6 @@
 
 
-SMS For Office (SMS Via SharePoint List) - CSOM Extensions!
+SMS Gateway Connector (SMS Via SharePoint List) - CSOM Extensions!
 ============================================================================
 
 This is the main repository for the SMS For Office Add-in extensions for SharePoint.
