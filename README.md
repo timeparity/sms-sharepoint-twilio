@@ -3,14 +3,14 @@
 SMS Gateway Connector (SMS Via SharePoint List) - CSOM Extensions!
 ============================================================================
 
-This is the main repository for the SMS For Office Add-in extensions for SharePoint.
+This is the main repository for the SMS Gateway Conenctor Add-in extensions for SharePoint.
 
 <a href="https://timeparity.com/sms-sharepoint-gateway?view=git" rel="SMS Gateway Connector(SMS Via SharePoint List)">![SMS Gateway Connector(SMS Via SharePoint List)](https://timeparity.com/img/sharepoint-gateway-app.gif)</a>
 
 <i class="icon-help-circled"></i> About
 -------------
 
-SMS Gateway Connector is SharePoint Add-in available in Microsoft SharePoint Store, that allows easy SMS integration of Twilio / Plivo in SharePoint Site. With mimimal configuration, the add-in provisions a SharePoint List which is used to Send SMS request, and support incoming SMS. This repository intends to achieve a community driven repository of implementations extensions and samples of the Add-in.
+SMS Gateway Connector is SharePoint Add-in available in Microsoft SharePoint Store, that allows easy SMS integration of Twilio  into SharePoint Site. With mimimal configuration, the add-in provisions a SharePoint List which is used to Send SMS request, and another SharePoint List which supports incoming SMS. This repository intends to achieve a community driven repository of implementations extensions and samples of the Add-in.
 
 •	Official Website: https://timeparity.com/sms-sharepoint-gateway?view=git
 
