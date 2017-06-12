@@ -5,29 +5,29 @@ SMS Gateway Connector (SMS Via SharePoint List) - CSOM Extensions!
 
 This is the main repository for the SMS For Office Add-in extensions for SharePoint.
 
-<a href="https://timeparity.com/sms-sharepoint" rel="SMS For Office(SMS Via SharePoint List)">![SMS For Office(SMS Via SharePoint List)](https://timeparity.com/img/timeparity_sms_for_office_sharepoint.png)</a>
+<a href="https://timeparity.com/sms-sharepoint-gateway?view=git" rel="SMS Gateway Connector(SMS Via SharePoint List)">![SMS Gateway Connector(SMS Via SharePoint List)](https://timeparity.com/img/sharepoint-gateway-app.gif)</a>
 
 <i class="icon-help-circled"></i> About
 -------------
 
-SMS For Office is SharePoint Add-in available in Microsoft SharePoint Store, that allows easy SMS integration in SharePoint Site. With zero manual configuration, the add-in provisions a SharePoint List which is used to Send SMS request. This repository intends to achieve a community driven repository of implementations extensions and samples of the Add-in.
+SMS Gateway Connector is SharePoint Add-in available in Microsoft SharePoint Store, that allows easy SMS integration of Twilio / Plivo in SharePoint Site. With mimimal configuration, the add-in provisions a SharePoint List which is used to Send SMS request, and support incoming SMS. This repository intends to achieve a community driven repository of implementations extensions and samples of the Add-in.
 
-•	Official Website: https://timeparity.com/sms-sharepoint 
+•	Official Website: https://timeparity.com/sms-sharepoint-gateway?view=git
 
-•	On SharePoint Store: https://store.office.com/en-us/app.aspx?assetid=WA104380716 
+•	On SharePoint Store: https://store.office.com/en-001/app.aspx?assetid=WA104380984 
    
 > **Note:**
 
 > - Please note this github repository is intended for developers to integrate the add-in programmatically in applications.
-> - If you are looking for tutorial to send SMS from SharePoint Site, or need help with Installation refer the tutorial site here :    https://smsappsharepoint.wordpress.com/ 
 
-![Sending SMS from SharePoint Online / SharePoint 2016.](https://timeparity.com/img/sp_smsrequestlist_additem_512x384.png)
+
+![Sending SMS from SharePoint Online / SharePoint 2016.](https://timeparity.com/img/spgway_sendsms_splist_1366x768.png)
 
 
 Table of contents
 -------------
 
-*   [SMS For Office (SMS Via SharePoint List) - CSOM Extensions!](#)
+*   [SMS Gateway Connector (SMS Via SharePoint List) - CSOM Extensions!](#)
     *   [About](#about)
     *   [Getting Started](#getting-started)
         *   [Prerequisite](#1-prerequisite)
@@ -51,12 +51,12 @@ Getting Started
 -------------
 ### 1) Prerequisite
 
-**Install SMS for Office(SMS via SharePoint List) Add-in**
-> - Install the add-in from Microsoft SharePoint Store, installation steps [here](https://smsappsharepoint.wordpress.com/2017/02/02/step-by-step-install-sms-for-office-sharepoint-add-in-from-microsoft-sharepoint-store/)
-> - Add-in Name: **SMS for Office(SMS via SharePoint List)**
-> - Office Store asset ID : **WA104380716**
+**Install SMS Gateway Connector(SMS via SharePoint List) Add-in**
+> - Install the add-in from Microsoft SharePoint Store, installation steps [here](https://timeparity.com/Content/timeparity-sms-gateway-installation-guide.pdf)
+> - Add-in Name: **SMS Gateway Connector(SMS via SharePoint List)**
+> - Office Store asset ID : **WA104380984**
 
-> ![SMS For Office SharePoint Add-in](https://timeparity.com/img/smsapp-icon-114x114.png)
+> ![SMS For Office SharePoint Add-in](https://az158878.vo.msecnd.net/marketing/Partner_21474845989/Product_42949680853/Asset_e72d6535-7ec3-4682-bc9f-d699c0a84573/SMSGatewayIcon300x300.png)
 
 
 
