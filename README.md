@@ -12,7 +12,7 @@ This is the main repository for the SMS Gateway Conenctor Add-in extensions for 
 <i class="icon-help-circled"></i> About
 -------------
 
-SMS Gateway Connector is SharePoint Add-in available in Microsoft SharePoint Store, that allows easy SMS integration of Twilio  into SharePoint Site. With mimimal configuration, the add-in provisions a SharePoint List which is used to Send SMS request, and another SharePoint List which supports incoming SMS. This repository intends to achieve a community driven repository of implementations extensions and samples of the Add-in.
+SMS Gateway Connector is SharePoint Add-in available in Microsoft SharePoint Store, that allows easy SMS integration of Twilio  into SharePoint Site. The add-in provisions a SharePoint List which is used to Send SMS request, and another SharePoint List which supports incoming SMS. The Add-in already support outgoing and incoming sms by now  This repository intends to achieve a community driven repository of implementations extensions and samples of the Add-in.
 
 •	Official Website: https://timeparity.com/sms-sharepoint-gateway?view=git
 
@@ -110,11 +110,12 @@ using Microsoft.SharePoint.Client;
 /// Creates entry in SMS Request List for sending the message  
 /// to user of provided user id (loginame or email id)
 /// </summary>
+/// <param name="customGateway">Boolean Value to be set as true while using Twilio / Plivo</param>   
 /// <param name="loginNameOrEmail">loginname or email id of the user</param>   
 /// <param name="message">SMS Message content</param>  
 /// <param name="title">Optional title to be set for the request, default is "Custom"</param>  
 
-public static SMSRequestResult SendSMSToUser(this ClientContext context, string loginNameOrEmail, 
+public static SMSRequestResult SendSMSToUser(this ClientContext context, bool customGateway, string loginNameOrEmail, 
 string message, string title = "Custom")
 ```
 
@@ -139,11 +140,11 @@ string username = "i:0#.f|membership|steve@foobar.onmicrosoft.com";
 
 using (ClientContext clientcontext = am.GetWebLoginClientContext(siteurl))
 { 
-    SMSRequestResult result = clientcontext.SendSMSToUser(emailid , smscontent);
+    SMSRequestResult result = clientcontext.SendSMSToUser(true, emailid , smscontent);
     Console.WriteLine("Requested by email id, Result : {0} , Message: {1} "
     , result.status.ToString(), result.status_message);
     
-    SMSRequestResult result2 = clientcontext.SendSMSToUser(username , smscontent);
+    SMSRequestResult result2 = clientcontext.SendSMSToUser(true, username , smscontent);
     Console.WriteLine("Requested by username, Result : {0} , Message: {1} "
     , result2.status.ToString(), result2.status_message);
 }
@@ -156,11 +157,12 @@ using (ClientContext clientcontext = am.GetWebLoginClientContext(siteurl))
 /// <summary>
 /// Creates entry in SMS Request List for sending the message to user   
 /// </summary>
+/// <param name="customGateway">Boolean Value to be set as true while using Twilio / Plivo</param>   
 /// <param name="user">SharePoint User Object</param>   
 /// <param name="message">SMS Message content</param>  
 /// <param name="title">Optional title to be set for the request, default is "Custom"</param>  
 
-public static SMSRequestResult SendSMSToUser(this ClientContext context, User user, 
+public static SMSRequestResult SendSMSToUser(this ClientContext context, bool customGateway, User user, 
 string message, string title = "Custom")
 ```
 
@@ -185,7 +187,7 @@ using (ClientContext clientcontext = am.GetWebLoginClientContext(siteurl))
     User user = clientcontext.Web.CurrentUser;
     
     //Send SMS to User
-    SMSRequestResult result = clientcontext.SendSMSToUser(user , smscontent);
+    SMSRequestResult result = clientcontext.SendSMSToUser(true, user , smscontent);
     Console.WriteLine("Requested user object, Result : {0} , Message: {1} "
     , result.status.ToString(), result.status_message);
      
@@ -210,13 +212,14 @@ using Microsoft.SharePoint.Client;
 /// Creates entry in SMS Request List for sending the message  
 /// to users with provided user id(s) - loginame(s) or email id(s)
 /// </summary>
+/// <param name="customGateway">Boolean Value to be set as true while using Twilio / Plivo</param>   
 /// <param name="loginNameOrEmail">A list/Array of loginname or email id of the users</param>   
 /// <param name="message">SMS Message content</param>  
 /// <param name="batchSize">Optional limit to specify maximum recipients per request,
 ///  recommended value is 25</param>  
 /// <param name="title">Optional title to be set for the request, default is "Custom"</param>  
 
-public static SMSRequestResult SendSMSToMultipleUsers(this ClientContext context, 
+public static SMSRequestResult SendSMSToMultipleUsers(this ClientContext context, bool customGateway, 
 IEnumerable<string> loginNameOrEmail, string message, string title = "Custom")
 ```
 
@@ -249,14 +252,14 @@ using (ClientContext clientcontext = am.GetWebLoginClientContext(siteurl))
 { 
     // Send SMS to an array of users, 
     // create a new request for each user (batchsize = 1)   
-    SMSRequestResult result = clientcontext.SendSMSToMultipleUsers(userArray , smscontent, 1);
+    SMSRequestResult result = clientcontext.SendSMSToMultipleUsers(true, userArray , smscontent, 1);
     Console.WriteLine("Requested by array");
     Console.WriteLine("Result : " + result.status.ToString());
     Console.WriteLine("Result Message: " + result.status_message);
     
     // Send SMS to a List of users, 
     // create a single request for every 25 users  (batchsize default value is 25)
-    SMSRequestResult result2 = clientcontext.SendSMSToMultipleUsers(userList , smscontent);
+    SMSRequestResult result2 = clientcontext.SendSMSToMultipleUsers(true, userList , smscontent);
     Console.WriteLine("Requested by list");
     Console.WriteLine("Result : " + result2.status.ToString());
     Console.WriteLine("Result Message: " + result2.status_message);
@@ -270,13 +273,14 @@ using (ClientContext clientcontext = am.GetWebLoginClientContext(siteurl))
 /// <summary>
 /// Creates entry in SMS Request List for sending the message to user   
 /// </summary>
+/// <param name="customGateway">Boolean Value to be set as true while using Twilio / Plivo</param>   
 /// <param name="users">SharePoint UserCollection Object</param>   
 /// <param name="message">SMS Message content</param>  
 /// <param name="batchSize">Optional limit to specify maximum recipients per request,
 /// recommended value is 25</param>  
 /// <param name="title">Optional title to be set for the request, default is "Custom"</param>  
 
-public static SMSRequestResult SendSMSToMultipleUsers(this ClientContext context, UserCollection users, 
+public static SMSRequestResult SendSMSToMultipleUsers(this ClientContext context, bool customGateway, UserCollection users, 
 string message, string title = "Custom")
 ```
 
@@ -304,7 +308,7 @@ using (ClientContext clientcontext = am.GetWebLoginClientContext(siteurl))
     UserCollection users = clientContext.Web.AssociatedMemberGroup.Users;
     
     //Send SMS to Users
-    SMSRequestResult result = clientcontext.SendSMSToMultipleUsers(users , smscontent);
+    SMSRequestResult result = clientcontext.SendSMSToMultipleUsers(true, users , smscontent);
     Console.WriteLine("Requested by usercollection object");
     Console.WriteLine("Result : " + result.status.ToString());
     Console.WriteLine("Result Message: " + result.status_message);
@@ -330,13 +334,14 @@ using Microsoft.SharePoint.Client;
 /// <summary>
 /// Creates entry in SMS Request List for sending the message to users of a SharePoint Group
 /// </summary>
+/// <param name="customGateway">Boolean Value to be set as true while using Twilio / Plivo</param>   
 /// <param name="groupTitle">SharePoint Group Title</param>   
 /// <param name="message">SMS Message content</param>     
 /// <param name="batchSize">Optional limit to specify maximum recipients per request,
 ///  recommended value is 25</param>  
 /// <param name="title">Optional title to be set for the request, default is "Custom"</param> 
 
-public static SMSRequestResult SendSMSToSharePointGroupUsers(this ClientContext context, string groupTitle,
+public static SMSRequestResult SendSMSToSharePointGroupUsers(this ClientContext context, bool customGateway, string groupTitle,
 string message, int batchSize = 25, string title = "Custom")
 ```
 
@@ -359,7 +364,7 @@ string groupTitle = "bob@foobar.onmicrosoft.com";
 using (ClientContext clientcontext = am.GetWebLoginClientContext(siteurl))
 { 
     //Send SMS to Group Users
-    SMSRequestResult result = clientcontext.SendSMSToSharePointGroupUsers(groupTitle , smscontent);
+    SMSRequestResult result = clientcontext.SendSMSToSharePointGroupUsers(true, groupTitle , smscontent);
     
     Console.WriteLine("Requested by group name, Result : {0} , Message: {1} "
     , result.status.ToString(), result.status_message);
@@ -374,13 +379,14 @@ using (ClientContext clientcontext = am.GetWebLoginClientContext(siteurl))
 /// <summary>
 /// Creates entry in SMS Request List for sending the message to users of a SharePoint Group
 /// </summary>
+/// <param name="customGateway">Boolean Value to be set as true while using Twilio / Plivo</param>   
 /// <param name="groupID">SharePoint Group Id</param>   
 /// <param name="message">SMS Message content</param>     
 /// <param name="batchSize">Optional limit to specify maximum recipients per request,
 /// recommended value is 25</param>  
 /// <param name="title">Optional title to be set for the request, default is "Custom"</param>  
 
-public static SMSRequestResult SendSMSToSharePointGroupUsers(this ClientContext context, int groupID, 
+public static SMSRequestResult SendSMSToSharePointGroupUsers(this ClientContext context, bool customGateway, int groupID, 
 string message, int batchSize = 25, string title = "Custom")
 ```
 
@@ -404,7 +410,7 @@ int groupID = 4;
 using (ClientContext clientcontext = am.GetWebLoginClientContext(siteurl))
 { 
     //Send SMS to Group Users
-    SMSRequestResult result = clientcontext.SendSMSToSharePointGroupUsers(groupID , smscontent);
+    SMSRequestResult result = clientcontext.SendSMSToSharePointGroupUsers(true, groupID , smscontent);
     
     Console.WriteLine("Requested by group id, Result : {0} , Message: {1} "
     , result.status.ToString(), result.status_message);
@@ -418,13 +424,14 @@ using (ClientContext clientcontext = am.GetWebLoginClientContext(siteurl))
 /// <summary>
 /// Creates entry in SMS Request List for sending the message to users of a SharePoint Group
 /// </summary>
+/// <param name="customGateway">Boolean Value to be set as true while using Twilio / Plivo</param>   
 /// <param name="group">SharePoint Group</param>   
 /// <param name="message">SMS Message content</param>     
 /// <param name="batchSize">Optional limit to specify maximum recipients per request,
 ///  recommended value is 25</param>  
 /// <param name="title">Optional title to be set for the request, default is "Custom"</param>  
 
-public static SMSRequestResult SendSMSToSharePointGroupUsers(this ClientContext context, Group group, string message, int batchSize = 25, string title = "Custom")
+public static SMSRequestResult SendSMSToSharePointGroupUsers(this ClientContext context, bool customGateway, Group group, string message, int batchSize = 25, string title = "Custom")
 ```
 
 >**Usage**
@@ -449,7 +456,7 @@ using (ClientContext clientcontext = am.GetWebLoginClientContext(siteurl))
     Group group = clientcontext.Web.AssociatedOwnerGroup;
     
     //Send SMS to Owner Group Users
-    SMSRequestResult result = clientcontext.SendSMSToSharePointGroupUsers(group , smscontent);
+    SMSRequestResult result = clientcontext.SendSMSToSharePointGroupUsers(true, group , smscontent);
     
     Console.WriteLine("Requested by CSOM Group object, Result : {0} , Message: {1} "
     , result.status.ToString(), result.status_message);
