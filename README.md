@@ -54,7 +54,7 @@ Getting Started
 **Install SMS Gateway Connector(SMS via SharePoint List) Add-in**
 > - Install the add-in from Microsoft SharePoint Store, installation steps [here](https://timeparity.com/Content/timeparity-sms-gateway-installation-guide.pdf)
 > - Add-in Name: **SMS Gateway Connector(SMS via SharePoint List)**
-> - Office Store asset ID : **WA104380984**
+> - Office Store asset ID : [**WA104380984**](https://store.office.com/en-001/app.aspx?assetid=WA104380984 )
 
 > ![SMS For Office SharePoint Add-in](https://az158878.vo.msecnd.net/marketing/Partner_21474845989/Product_42949680853/Asset_e72d6535-7ec3-4682-bc9f-d699c0a84573/SMSGatewayIcon300x300.png)
 
