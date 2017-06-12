@@ -1,6 +1,6 @@
 
 
-Send and Receive SMS from SharePoint using Twilio
+Using Twilio with SharePoint to Send and Receive SMS 
 ============================================================================
 
 SMS Gateway Connector (SMS Via SharePoint List) - CSOM Extensions!
