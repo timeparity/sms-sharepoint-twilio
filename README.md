@@ -1,7 +1,9 @@
 
 
-SMS Gateway Connector (SMS Via SharePoint List) - CSOM Extensions!
+Send and Receive SMS from SharePoint using Twilio
 ============================================================================
+
+SMS Gateway Connector (SMS Via SharePoint List) - CSOM Extensions!
 
 This is the main repository for the SMS Gateway Conenctor Add-in extensions for SharePoint.
 
