@@ -41,6 +41,8 @@ Table of contents
     *   [Send SMS to Multiple SharePoint Users](#send-sms-to-multiple-sharepoint-users)
         *   [SMS By Username / Email id](#sms-by-username--email-id-1)
         *   [SMS By CSOM UserCollection Object](#sms-by-csom-usercollection-object)
+    *   [Send SMS to External Users](#send-sms-to-external-users)
+        *   [SMS By Mobile Numbers](#sms-by-mobile-number)
     *   [Send SMS to SharePoint Groups](#send-sms-to-sharepoint-group)
         *   [SMS By SharePoint Group Name](#sms-by-sharepoint-group-name)
         *   [SMS By SharePoint Group ID](#sms-by-sharepoint-group-id)
