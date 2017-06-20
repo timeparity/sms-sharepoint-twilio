@@ -368,7 +368,7 @@ using (ClientContext clientcontext = am.GetWebLoginClientContext(siteurl))
     _mobileNumbers.Add("+1234512345");
     
     SMSRequestResult result = clientcontext.SendSMSToMultipleMobileNumbers(true, _mobileNumbers , smscontent, 30);
-    Console.WriteLine("Requested by email id, Result : {0} , Message: {1} "
+    Console.WriteLine("Requested by mobile numbers, Result : {0} , Message: {1} "
     , result.status.ToString(), result.status_message);
     
  
