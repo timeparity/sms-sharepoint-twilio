@@ -35,13 +35,13 @@ Table of contents
         *   [Prerequisite](#1-prerequisite)
         *   [Install Library from NUGET](#2-install-library-from-nuget)
         *   [Include Refrences](#3-include-refrences)
-    *   [Send SMS to SharePoint User](#-send-sms-to-sharepoint-user)
+    *   [Send SMS to SharePoint User](#send-sms-to-sharepoint-user)
         *   [SMS By Username / Email id](#sms-by-username--email-id)
         *   [SMS By CSOM User Object](#sms-by-csom-user-object)
-    *   [Send SMS to Multiple SharePoint Users](#-send-sms-to-multiple-sharepoint-users)
+    *   [Send SMS to Multiple SharePoint Users](#send-sms-to-multiple-sharepoint-users)
         *   [SMS By Username / Email id](#sms-by-username--email-id-1)
         *   [SMS By CSOM UserCollection Object](#sms-by-csom-usercollection-object)
-    *   [Send SMS to SharePoint Groups](#-send-sms-to-sharepoint-group-)
+    *   [Send SMS to SharePoint Groups](#send-sms-to-sharepoint-group-)
         *   [SMS By SharePoint Group Name](#sms-by-sharepoint-group-name)
         *   [SMS By SharePoint Group ID](#sms-by-sharepoint-group-id)
         *   [SMS By SharePoint CSOM Group Object](#sms-by-csom-group-object)
@@ -94,7 +94,7 @@ using Microsoft.SharePoint.Client;
  <i class="icon-user"></i>Send SMS to SharePoint User
 -------------
 
-Once you have included the [references](#include-refrences) , you have the following options to chose from for sending SMS to your SharePoint Site User
+Once you have included the [references](#3-include-refrences) , you have the following options to chose from for sending SMS to your SharePoint Site User
 
 ```c#
 using TimeParity.SharePoint.SMS;
@@ -196,7 +196,7 @@ using (ClientContext clientcontext = am.GetWebLoginClientContext(siteurl))
  <i class="icon-user"></i>Send SMS to Multiple SharePoint Users
 -------------
 
-Once you have included the [references](#include-refrences) , you have the following options to chose from for sending SMS to your SharePoint Site Users
+Once you have included the [references](#3-include-refrences) , you have the following options to chose from for sending SMS to your SharePoint Site Users
 
 ```c#
 using TimeParity.SharePoint.SMS;
@@ -319,7 +319,7 @@ using (ClientContext clientcontext = am.GetWebLoginClientContext(siteurl))
  <i class="icon-user"></i>Send SMS to SharePoint Group 
 -------------
 
-Once you have included the [references](#include-refrences) , you have the following options to chose from for sending SMS to users of your SharePoint Group
+Once you have included the [references](#3-include-refrences) , you have the following options to chose from for sending SMS to users of your SharePoint Group
 
 ```c#
 using TimeParity.SharePoint.SMS;
