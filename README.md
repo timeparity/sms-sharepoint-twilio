@@ -41,7 +41,7 @@ Table of contents
     *   [Send SMS to Multiple SharePoint Users](#send-sms-to-multiple-sharepoint-users)
         *   [SMS By Username / Email id](#sms-by-username--email-id-1)
         *   [SMS By CSOM UserCollection Object](#sms-by-csom-usercollection-object)
-    *   [Send SMS to SharePoint Groups](#send-sms-to-sharepoint-group-)
+    *   [Send SMS to SharePoint Groups](#send-sms-to-sharepoint-group)
         *   [SMS By SharePoint Group Name](#sms-by-sharepoint-group-name)
         *   [SMS By SharePoint Group ID](#sms-by-sharepoint-group-id)
         *   [SMS By SharePoint CSOM Group Object](#sms-by-csom-group-object)
@@ -193,6 +193,7 @@ using (ClientContext clientcontext = am.GetWebLoginClientContext(siteurl))
      
 }
 ```
+
  <i class="icon-user"></i>Send SMS to Multiple SharePoint Users
 -------------
 
@@ -315,6 +316,63 @@ using (ClientContext clientcontext = am.GetWebLoginClientContext(siteurl))
      
 }
 ```
+
+ <i class="icon-user"></i>Send SMS to External Users
+-------------
+
+Once you have included the [references](#3-include-refrences) , you have the following options to chose from for sending SMS to your External Users
+
+```c#
+using TimeParity.SharePoint.SMS;
+using TimeParity.SharePoint.SMS.Extensions;
+using Microsoft.SharePoint.Client;
+```
+#### <i class="icon-user"></i>SMS By Mobile Number
+
+>**Extension Definiton**
+
+```c#
+/// <summary>
+/// Creates entry in SMS Request List for sending the message  
+/// to users with provided mobile numbers
+/// </summary>
+/// <param name="customGateway">Boolean Value to be set as true while using Twilio / Plivo</param>   
+/// <param name="mobileNumbers">An Array or List of Mobile numbers</param>   
+/// <param name="message">SMS Message content</param>  
+/// <param name="title">Optional title to be set for the request, default is "Custom"</param>  
+
+public static SMSRequestResult SendSMSToMultipleMobileNumbers(this ClientContext context, bool customGateway, IEnumerable mobileNumbers, 
+string message, string title = "Custom")
+```
+
+>**Usage**
+
+```c#
+
+// Office Dev PNP Authentication Manager
+var am = new OfficeDevPnP.Core.AuthenticationManager();
+
+// Url of the site where add-in is already installed
+string siteUrl = "https://foobar.sharepoint.com";
+
+// The content of your SMS message
+string smscontent = "A message from SharePoint";
+
+using (ClientContext clientcontext = am.GetWebLoginClientContext(siteurl))
+{ 
+    List<string> _mobileNumbers = new List<string>();
+    // Add mobile numbers as string to List
+    _mobileNumbers.Add("+1234567890");
+    _mobileNumbers.Add("+1234512345");
+    
+    SMSRequestResult result = clientcontext.SendSMSToMultipleMobileNumbers(true, _mobileNumbers , smscontent, 30);
+    Console.WriteLine("Requested by email id, Result : {0} , Message: {1} "
+    , result.status.ToString(), result.status_message);
+    
+ 
+}
+```
+
 
  <i class="icon-user"></i>Send SMS to SharePoint Group 
 -------------
